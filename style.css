@@ -1,0 +1,52 @@
+header{
+background-color: rgba(255, 255, 255, 0.062);
+text-align: center;
+}
+
+body{
+    text-align: left;
+    background: rgb(0, 0, 0);
+    height: 100vh;
+}
+#titulo-rgb{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    animation:rgbColor 1s infinite;
+}
+@keyframes rgbColor {
+  0% { color: rgb(255, 255, 255); }
+  33% { color: rgb(170, 170, 170); }
+  66% { color: rgb(255, 255, 255); }
+  100% { color: rgb(170, 170, 170); }
+}
+
+#titulo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    text-align: center;
+    background-color: rgba(43, 41, 41, 0.514);
+}
+#presentacion{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-family:Roboto, sans-serif;
+}
+.texto{
+    color: aliceblue;
+    font-size: large;
+    font-family:Roboto, sans-serif;
+}
+#luffy{
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+#redes{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    text-align: center;
+}
