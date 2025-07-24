@@ -28,12 +28,19 @@ body{
     color:white;
     text-align: center;
     background-color: rgba(43, 41, 41, 0.514);
+    font-size: xx-large;  
+}
+.contenedor{
+    display: flex;
+    padding-left: 70px;
+    gap: 100px;
 }
 #presentacion{
-    text-align: center;
+    text-align: left;
     color: white;
     font-size: 25px;
     font-family:Roboto, sans-serif;
+    max-width: 1100px;
 }
 .texto{
     color: aliceblue;
@@ -43,8 +50,21 @@ body{
 #luffy{
     display: block;
     margin: 0 auto;
-    width: 400px;
+    width: 300px;
+    border: px solid transparent;
+    border-radius: 10px;
+    background: linear-gradient(45deg, red, green, blue, red);
+    background-size: 300% 300%;
+    animation: rgbBorder 5s linear infinite;
+    padding: 5px;
 }
+
+@keyframes rgbBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 #redes{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:white;
