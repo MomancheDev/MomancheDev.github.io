@@ -1,21 +1,29 @@
-header{
-background-color: rgba(255, 255, 255, 0.062);
-text-align: center;
+/* Estilo general */
+* {
+  box-sizing: border-box;
 }
 
-body{
-    text-align: left;
-    background: rgb(0, 0, 0);
-    height: 100vh;
+body {
+  text-align: left;
+  background: #000;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
-#titulo-rgb{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-    text-align: center;
-    font-size: 40px;
-    animation:rgbColor 1s infinite;
+
+header {
+  background-color: rgba(255, 255, 255, 0.062);
+  text-align: center;
 }
+
+#titulo-rgb {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  animation: rgbColor 1s infinite;
+}
+
 @keyframes rgbColor {
   0% { color: rgb(255, 255, 255); }
   33% { color: rgb(170, 170, 170); }
@@ -23,40 +31,46 @@ body{
   100% { color: rgb(170, 170, 170); }
 }
 
-#titulo{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:white;
-    text-align: center;
-    background-color: rgba(43, 41, 41, 0.514);
-    font-size: xx-large;  
+#titulo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  text-align: center;
+  background-color: rgba(43, 41, 41, 0.514);
+  font-size: xx-large;
+  padding: 10px;
+  margin: 0;
 }
-.contenedor{
-    display: flex;
-    padding-left: 70px;
-    gap: 100px;
+
+/* Contenedor general */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-#presentacion{
-    text-align: left;
-    color: white;
-    font-size: 25px;
-    font-family:Roboto, sans-serif;
-    max-width: 1100px;
+
+/* Columnas */
+.columna-1,
+.columna-2 {
+  flex: 1 1 300px;
+  min-width: 280px;
 }
-.texto{
-    color: aliceblue;
-    font-size: large;
-    font-family:Roboto, sans-serif;
-}
-#luffy{
-    display: block;
-    margin: 0 auto;
-    width: 300px;
-    border: px solid transparent;
-    border-radius: 10px;
-    background: linear-gradient(45deg, red, green, blue, red);
-    background-size: 300% 300%;
-    animation: rgbBorder 5s linear infinite;
-    padding: 5px;
+
+/* Imagen luffy */
+#luffy {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, red, green, blue, red);
+  background-size: 300% 300%;
+  animation: rgbBorder 5s linear infinite;
+  padding: 5px;
 }
 
 @keyframes rgbBorder {
@@ -65,8 +79,51 @@ body{
   100% { background-position: 0% 50%; }
 }
 
-#redes{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:white;
-    text-align: center;
+/* Texto */
+#presentacion,
+.texto {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+#redes {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#redes img {
+  margin: 5px;
+  width: 50px;
+  height: auto;
+}
+
+/* Imágenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-color: #111;
+}
+
+/* Responsive: menor a 768px (tablet/celular) */
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #titulo {
+    font-size: 1.5rem;
+  }
+
+  #presentacion {
+    font-size: 1rem;
+  }
 }
