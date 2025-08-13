@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 /* Estilo general */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -14,6 +18,77 @@ header {
   background-color: rgba(255, 255, 255, 0.062);
   text-align: center;
 }
+
+.header{
+  background-color:rgba(43, 41, 41, 0.514) ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+.header .logo {
+  cursor:pointer;
+}
+
+.header .logo img{
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+  border-radius: 50px
+}
+
+.header .logo img:hover{
+  transform: scale(1.2)
+}
+
+.header .nav-links{
+  list-style: none;
+}
+
+.header .nav-links li{
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.header .nav-links li:hover{
+  transform:scale(1.1)
+}
+
+
+
+.header .nav-links a{
+  font-size: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover{
+  color: rgb(209, 4, 4);
+}
+.header .btn button{
+  font-weight: 700;
+  color:midnightblue;
+  padding: 9px 25px;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+  background-color: white;
+  color: rgb(209, 4, 4);
+  transform: scale(1.1)
+}
+
+
+
+
+
+
 
 #titulo-rgb {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
