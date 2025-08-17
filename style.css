@@ -11,13 +11,14 @@ body {
   text-align: left;
   background: #000;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 header {
   background-color: rgba(255, 255, 255, 0.062);
   text-align: center;
 }
+
+/* Esto es parte de la navbar*/
 
 .header{
   background-color:rgba(43, 41, 41, 0.514) ;
@@ -56,8 +57,6 @@ header {
   transform:scale(1.1)
 }
 
-
-
 .header .nav-links a{
   font-size: 700;
   color: white;
@@ -83,11 +82,7 @@ header {
   color: rgb(209, 4, 4);
   transform: scale(1.1)
 }
-
-
-
-
-
+/*Aqui acaba la navbar*/
 
 
 #titulo-rgb {
@@ -148,6 +143,16 @@ header {
   padding: 5px;
 }
 
+#One {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  background-size: 300% 300%;
+  padding-top: 60px;
+}
+
 @keyframes rgbBorder {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -160,6 +165,7 @@ header {
   color: white;
   font-size: 1.1rem;
   line-height: 1.6;
+  padding-top: 10px;
 }
 
 #redes {
