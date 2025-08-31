@@ -13,7 +13,15 @@
             <div class="logo">
                 <img src="img/luffy.jpg" alt="Logo de mi blog">
             </div>
-            <nav>
+
+            <!-- Botón hamburguesa -->
+            <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>   
+            </button>
+
+            <nav id="nav">
                 <ul class="nav-links">
                     <li><a href="index.html">¿Quien soy?</a></li>
                     <li><a href="curita.html">Curita en el corazón &#128082 </a></li>
@@ -22,6 +30,7 @@
                     <li><a href="Historia.html">Mi historia con la tecnologia</a></li>
                 </ul> 
             </nav>
+
             <a href="#" class="btn"><button>Contact</button></a>
     </header>
     
@@ -45,5 +54,32 @@
             </div>
         </div>
     </article>
+
+<script>
+   (function () {
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('nav');
+        const header = document.querySelector('.header');
+
+        function closeMenu() {
+          header.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', () => {
+          const open = header.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.addEventListener('click', (e) => {
+          if (e.target.matches('a')) closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.matchMedia('(min-width: 769px)').matches) closeMenu();
+        });
+      })();
+</script>
+
 </body>
 </html>

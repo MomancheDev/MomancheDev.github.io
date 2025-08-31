@@ -10,21 +10,29 @@
 </head>
 <body>
 
-
     <header class="header">
-            <div class="logo">
-                <img src="img/luffy.jpg" alt="Logo de mi blog">
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">¿Quien soy?</a></li>
-                    <li><a href="curita.html">Curita en el corazón &#128082 </a></li>
-                    <li><a href="Gustos.html">¿Que me gusta?</a></li>
-                    <li><a href="Treasure.html">My Treasure</a></li>
-                    <li><a href="Historia.html">Mi historia con la tecnologia</a></li>
-                </ul> 
-            </nav>
-            <a href="#" class="btn"><button>Contact</button></a>
+        <div class="logo">
+            <img src="img/luffy.jpg" alt="Logo de mi blog">
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav">
+            <ul class="nav-links">
+                <li><a href="index.html">¿Quien soy?</a></li>
+                <li><a href="curita.html">Curita en el corazón &#128082;</a></li>
+                <li><a href="Gustos.html">¿Que me gusta?</a></li>
+                <li><a href="Treasure.html">My Treasure</a></li>
+                <li><a href="Historia.html">Mi historia con la tecnologia</a></li>
+            </ul> 
+        </nav>
+
+        <a href="#" class="btn"><button>Contact</button></a>
     </header>
     
     <header>
@@ -32,13 +40,13 @@
     </header>
     
     
-        <section>
-            <h2 id="titulo">¿QUIEN SOY?
-                <br> 
-                 WHO AM I?
-                <br>
-            </h2>
-                
+    <section>
+        <h2 id="titulo">¿QUIEN SOY?
+            <br> 
+             WHO AM I?
+            <br>
+        </h2>
+            
         <div class="contenedor">
 
             <div class="columna-1">
@@ -46,25 +54,51 @@
             </div>
 
             <div class="columna-2"> 
-                <p id="presentacion">Holaaaaaaaaa me presento, me llamo Santiago Ortega Guardado, tengo actualmente 21 años y me encuentro estudiando la ingenieria en software en la Universidad Autonoma de Querétaro, actualmente mi meta es aprender las tecnologias necesarias para ser un desarrollador frontend y bueno soy quien creó este blog, el por que de esto pues no hay razon especifica, simplemente me gusta mucho darle mi esencia a las cosas por asi decirlo y pasó por mi mente crear un blog sobre mi vida que a nadie le importa pero a mi si, nimodoooooooooo y pues bueno aparte de que es algo que me  entretiene, considero que es un buen proyecto personal para mis primeras interacciones con el desarrollo web 🙂
-                </p> 
+                <p id="presentacion">Holaaaaaaaaa me presento, me llamo Santiago Ortega Guardado, tengo actualmente 21 años y me encuentro estudiando la ingenieria en software en la Universidad Autonoma de Querétaro, actualmente mi meta es aprender las tecnologias necesarias para ser un desarrollador frontend y bueno soy quien creó este blog, el por que de esto pues no hay razon especifica, simplemente me gusta mucho darle mi esencia a las cosas por asi decirlo y pasó por mi mente crear un blog sobre mi vida que a nadie le importa pero a mi si, nimodoooooooooo y pues bueno aparte de que es algo que me  entretiene, considero que es un buen proyecto personal para mis primeras interacciones con el desarrollo web 🙂</p> 
             </div>
         </div>
 
-            <h2 id="redes">
-                <a href = 'https://steamcommunity.com/id/MomancheGOD/'> <img width = '50px' align= 'center' src="logos/Steam_icon_logo.svg.png"/></a> 
-                <a href = "https://github.com/MomancheDev"> <img width = '50px' align= 'center' src="logos/github-icon-logo-png_seeklogo-503247.png"/></a> 
-                <a href = "https://www.instagram.com/sxnty.og/"> <img width = '50px' align= 'center' src="logos/instagram.png"/></a> 
-                <a href = "https://www.facebook.com/itnas.nwn/"> <img width = '50px' align= 'center' src="logos/facebook.png"/></a> 
-                <a href = "https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng"> <img width = '50px' align= 'center' src="logos/spotify.png"/></a> 
-                <a href = "https://www.reddit.com/user/Atentado-Visual/"> <img width = '50px' align= 'center' src="logos/Reddit_Logo.png"/></a> 
-            </h2>
-        </section>
+        <h2 id="redes">
+            <a href = 'https://steamcommunity.com/id/MomancheGOD/'> <img width = '50px' align= 'center' src="logos/Steam_icon_logo.svg.png"/></a> 
+            <a href = "https://github.com/MomancheDev"> <img width = '50px' align= 'center' src="logos/github-icon-logo-png_seeklogo-503247.png"/></a> 
+            <a href = "https://www.instagram.com/sxnty.og/"> <img width = '50px' align= 'center' src="logos/instagram.png"/></a> 
+            <a href = "https://www.facebook.com/itnas.nwn/"> <img width = '50px' align= 'center' src="logos/facebook.png"/></a> 
+            <a href = "https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng"> <img width = '50px' align= 'center' src="logos/spotify.png"/></a> 
+            <a href = "https://www.reddit.com/user/Atentado-Visual/"> <img width = '50px' align= 'center' src="logos/Reddit_Logo.png"/></a> 
+        </h2>
+    </section>
         
     <footer>
         <a href="#titulo">Ir al comienzo</a>
         <p class="texto">Copyright 2025</p>
     </footer>
+
+    <!-- JS para el menú -->
+    <script>
+      (function () {
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('nav');
+        const header = document.querySelector('.header');
+
+        function closeMenu() {
+          header.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', () => {
+          const open = header.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.addEventListener('click', (e) => {
+          if (e.target.matches('a')) closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.matchMedia('(min-width: 769px)').matches) closeMenu();
+        });
+      })();
+    </script>
     
 </body>
 </html>

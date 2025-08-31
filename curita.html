@@ -14,7 +14,15 @@
             <div class="logo">
                 <img src="img/luffy.jpg" alt="Logo de mi blog">
             </div>
-            <nav>
+
+            <!-- Botón hamburguesa -->
+            <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav">
                 <ul class="nav-links">
                     <li><a href="index.html">¿Quien soy?</a></li>
                     <li><a href="curita.html">Curita en el corazón &#128082 </a></li>
@@ -45,5 +53,33 @@
                     One piece no es solo un anime de piratas que pelean, one piece siendo sinceros nunca fue un anime de piratas, realmente tampoco explicare de que trata one piece en este apartado pero one piece formo parte de una parte de mi vida muy baja donde me sirvio como unico soporte, el carisma de los personajes pero especialmente luffy que aun no me creo que un personaje pueda transmitir tanto, por eso y mucho más one piece es una gran parte de mi vida y nunca habra otra obra maestra siquiera parecida.
                 </p>
         </section>
+
+<!-- JS para el menú -->
+    <script>
+      (function () {
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('nav');
+        const header = document.querySelector('.header');
+
+        function closeMenu() {
+          header.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', () => {
+          const open = header.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.addEventListener('click', (e) => {
+          if (e.target.matches('a')) closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.matchMedia('(min-width: 769px)').matches) closeMenu();
+        });
+      })();
+    </script>
+
 </body>
 </html>
