@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · Momanche</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero { padding: 60px 0 20px; }
+
+    /* ── SOCIAL CARDS ── */
+    .socials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .social-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-decoration: none;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--card-accent, var(--cyan));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .social-card:hover {
+      border-color: var(--card-accent, var(--cyan));
+      background: var(--bg-hover);
+      transform: translateX(4px);
+    }
+
+    .social-card:hover::before { opacity: 1; }
+
+    .social-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 10px;
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .social-card:hover .social-icon-wrap {
+      border-color: var(--card-accent, var(--cyan));
+    }
+
+    /* placeholder para cuando aún no tienes imagen */
+    .social-icon-wrap .placeholder {
+      font-size: 24px;
+    }
+
+    /* imagen real — cuando la tengas, quita el .placeholder y pon un <img> */
+    .social-icon-wrap img {
+      width: 36px; height: 36px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .social-info { flex: 1; min-width: 0; }
+
+    .social-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+    }
+
+    .social-handle {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .social-arrow {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 16px;
+      color: var(--text-dim);
+      transition: color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .social-card:hover .social-arrow {
+      color: var(--card-accent, var(--cyan));
+      transform: translateX(3px);
+    }
+
+    /* colores de acento por red */
+    .card-github  { --card-accent: #fff; }
+    .card-instagram { --card-accent: #e1306c; }
+    .card-tiktok  { --card-accent: #69c9d0; }
+    .card-discord { --card-accent: #5865f2; }
+    .card-spotify { --card-accent: #1db954; }
+    .card-reddit  { --card-accent: #ff4500; }
+    .card-facebook{ --card-accent: #1877f2; }
+
+    /* ── COPY EMAIL ── */
+    .email-block {
+      margin-top: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .email-block .label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .email-block .address {
+      font-family: 'Orbitron', monospace;
+      font-size: 16px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+    }
+
+    .copy-btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      color: var(--cyan);
+      border-color: var(--border);
+      background: var(--cyan-dim);
+    }
+
+    .copy-btn.copied {
+      color: var(--green);
+      border-color: rgba(0,255,136,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">M<span>0</span>MANCHE</a>
+    <div class="nav-links">
+      <a href="index.html">inicio</a>
+      <a href="about.html">sobre mí</a>
+      <a href="music.html">música</a>
+      <a href="onepiece.html">one piece</a>
+      <a href="contact.html" class="active">contacto</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="section-tag fade-up">// conecta conmigo</p>
+      <h1 class="section-title fade-up delay-1">Contacto</h1>
+      <p style="color:var(--text-muted); font-size:16px; margin-bottom:40px; max-width:500px;" class="fade-up delay-2">
+        Me encuentras en estas redes. Da click en cualquier tarjeta para ir directo a mi perfil.
+      </p>
+    </div>
+
+    <div class="socials-grid">
+
+      <!-- GITHUB -->
+      <a
+        href="https://github.com/MomancheDev"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-github fade-up"
+      >
+        <div class="social-icon-wrap">
+          <!-- REEMPLAZA .placeholder por: <img src="img/icon-github.png" alt="GitHub"> -->
+          <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">GitHub</div>
+          <div class="social-handle">MomancheDev</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- INSTAGRAM -->
+      <a
+        href="https://www.instagram.com/momanche.exe/"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-instagram fade-up delay-1"
+      >
+        <div class="social-icon-wrap">
+          <img src="https://cdn.simpleicons.org/instagram/E1306C" alt="Instagram" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">Instagram</div>
+          <div class="social-handle">@Momanche.exe</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- TIKTOK -->
+      <a
+        href="https://www.tiktok.com/@momanche.og"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-tiktok fade-up delay-2"
+      >
+        <div class="social-icon-wrap">
+       <img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt="TikTok" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">TikTok</div>
+          <div class="social-handle">@Momanche.og</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- STEAM -->
+      <a
+        href="https://steamcommunity.com/id/MomancheGOD/"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-steam fade-up delay-3"
+      >
+        <div class="social-icon-wrap">
+          <img src="https://cdn.simpleicons.org/steam/00adee" alt="Spotify" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">Steam</div>
+          <div class="social-handle">Momanche</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- SPOTIFY -->
+      <a
+        href="https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-spotify fade-up delay-4"
+      >
+        <div class="social-icon-wrap">
+        <img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">Spotify</div>
+          <div class="social-handle">Momanche</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- REDDIT -->
+      <a
+        href="https://www.reddit.com/user/Atentado-Visual/"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-reddit fade-up"
+      >
+        <div class="social-icon-wrap">
+          <img src="https://cdn.simpleicons.org/reddit/FF4500" alt="Reddit" width="32" height="32">
+          <span class="placeholder"></span>
+        </div>
+        <div class="social-info">
+          <div class="social-name">Reddit</div>
+          <div class="social-handle">Momanche</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <!-- FACEBOOK -->
+      <a
+        href="https://www.facebook.com/itnas.nwn/"
+        target="_blank" rel="noopener noreferrer"
+        class="social-card card-facebook fade-up delay-1"
+      >
+        <div class="social-icon-wrap">
+        <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" width="32" height="32">
+        </div>
+        <div class="social-info">
+          <div class="social-name">Facebook</div>
+          <div class="social-handle">Santiago</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+    </div>
+
+    <!-- EMAIL -->
+    <div class="email-block fade-up">
+      <div>
+        <div class="label">// email directo</div>
+        <!-- REEMPLAZA con tu correo real -->
+        <div class="address" id="email-addr">santiagoog2004@gmail.com</div>
+      </div>
+      <button class="copy-btn" id="copy-btn" onclick="copyEmail()">
+        copiar email
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <span>momanche · 2025</span>
+    <span>[ all platforms · one person ]</span>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      const email = document.getElementById('email-addr').textContent;
+      navigator.clipboard.writeText(email).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✓ copiado';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'copiar email';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
