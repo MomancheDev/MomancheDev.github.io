@@ -3,296 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Momanche</title>
+  <title>Inicio · Momanche</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── HERO ── */
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 0;
-      gap: 0;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      color: var(--orange);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .hero-name {
-      font-family: 'Orbitron', monospace;
-      font-weight: 900;
-      font-size: clamp(36px, 7vw, 72px);
-      line-height: 1;
-      letter-spacing: 4px;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .hero-name .cyan { color: var(--cyan); text-shadow: 0 0 30px var(--cyan-glow); }
-
-    .hero-alias {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(14px, 2.5vw, 20px);
-      color: var(--text-muted);
-      letter-spacing: 6px;
-      margin-bottom: 28px;
-    }
-
-    .hero-alias span { color: var(--orange); }
-
-    .hero-desc {
-      font-size: 17px;
-      color: var(--text-muted);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .hero-status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: 1px;
-      margin-bottom: 40px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 12px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--cyan);
-      color: var(--bg-deep);
-      border: 1px solid var(--cyan);
-      font-weight: 700;
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--cyan);
-      box-shadow: 0 0 20px var(--cyan-glow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover {
-      color: var(--orange);
-      border-color: var(--border-hot);
-      background: var(--orange-dim);
-    }
-
-    /* ── STATS ── */
-    .stats-row {
-      display: flex;
-      gap: 32px;
-      margin-top: 64px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .stat-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--cyan);
-    }
-
-    .stat-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .stat-divider {
-      width: 1px;
-      background: var(--border);
-      align-self: stretch;
-    }
-
-    /* ── NAV CARDS ── */
-    .nav-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      padding-top: 60px;
-    }
-
-    .nav-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 28px 24px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: all 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nav-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      height: 2px; width: 0;
-      background: var(--cyan);
-      transition: width 0.3s;
-    }
-
-    .nav-card:hover { border-color: var(--cyan-glow); background: var(--bg-hover); transform: translateY(-3px); }
-    .nav-card:hover::before { width: 100%; }
-    .nav-card.op:hover { border-color: var(--border-hot); }
-    .nav-card.op::before { background: var(--orange); }
-
-    .nav-card-icon {
-      font-size: 28px;
-      margin-bottom: 4px;
-    }
-
-    .nav-card-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-
-    .nav-card-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .nav-card-arrow {
-      margin-top: auto;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-    }
-  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">M<span>0</span>MANCHE</a>
-    <div class="nav-links">
-      <a href="index.html" class="active">inicio</a>
-      <a href="about.html">sobre mí</a>
-      <a href="onepiece.html">one piece</a>
-      <a href="music.html">música</a>
-      <a href="contact.html">contacto</a>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="avatar-frame">
+      <div class="avatar-ring"></div>
+      <div class="avatar"><img src="img/avatar.jpg" alt="Santiago"></div>
+      <span class="k-corner tl">夢</span>
+      <span class="k-corner br">海</span>
     </div>
-  </nav>
-
-  <main>
-    <section class="hero">
-      <p class="hero-eyebrow fade-up">// bienvenido a mi espacio</p>
-      <h1 class="hero-name fade-up delay-1">Hola,<br>soy <span class="cyan">Santiago</span></h1>
-      <p class="hero-alias fade-up delay-2">alias: <span>Momanche</span></p>
-      <p class="hero-desc fade-up delay-3">
-        Desarrollador web de Querétaro, MX. Me gusta construir cosas para la web,
-        explorar tecnología y aprender cada dia mas sobre este mundo.<span class="cursor">_</span>
-      </p>
-      <div class="hero-status fade-up delay-4">
-        <span class="pulse-dot"></span>
-        online · Querétaro, MX
-      </div>
-      <div class="hero-cta fade-up delay-4">
-        <a href="about.html" class="btn btn-primary">sobre mí</a>
-        <a href="contact.html" class="btn btn-outline">contacto</a>
-      </div>
-
-      <div class="stats-row fade-up delay-4">
-        <div class="stat">
-          <span class="stat-num">MX</span>
-          <span class="stat-label">Querétaro</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">Dev</span>
-          <span class="stat-label">Frontend</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">22</span>
-          <span class="stat-label">Años</span>
-        </div>
-      </div>
+    <div class="name">Santiago</div>
+    <div class="handle">Momanche</div>
+    <div class="loc">Querétaro, MX</div>
+    <div class="socials">
+      <a href="https://github.com/MomancheDev" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+      <a href="https://www.instagram.com/momanche.exe/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E1306C" alt=""></a>
+      <a href="https://www.tiktok.com/@momanche.og" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt=""></a>
+      <a href="https://steamcommunity.com/id/MomancheGOD/" target="_blank" rel="noopener" aria-label="Steam"><img src="https://cdn.simpleicons.org/steam/00ADEE" alt=""></a>
+      <a href="https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng" target="_blank" rel="noopener" aria-label="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt=""></a>
+      <a href="https://www.reddit.com/user/Atentado-Visual/" target="_blank" rel="noopener" aria-label="Reddit"><img src="https://cdn.simpleicons.org/reddit/FF4500" alt=""></a>
+      <a href="https://www.facebook.com/itnas.nwn/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></a>
+    </div>
+    <div class="np" id="np"><div class="np-label">Last.fm</div><div class="np-artist">Cargando...</div></div>
+    <nav class="nav">
+      <a href="index.html" data-page="index" class="active"><span class="k">家</span>Inicio</a>
+      <a href="about.html" data-page="about"><span class="k">自己紹介</span>Sobre mí</a>
+      <a href="music.html" data-page="music"><span class="k">音楽</span>Música</a>
+      <a href="onepiece.html" data-page="onepiece"><span class="k">海賊</span>One Piece</a>
+      <a href="contact.html" data-page="contact"><span class="k">連絡</span>Contacto</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <section class="card hero">
+      <span class="bg-kanji" aria-hidden="true">家</span>
+      <p class="eyebrow">bienvenido</p>
+      <h1>Hola, soy Santiago</h1>
+      <p class="lead">Aquí comparto lo que hago con código, lo que escucho y lo que juego. Empieza por lo que te interese.</p>
     </section>
 
-    <div class="divider"></div>
+    <section class="card">
+      <p class="kanji-title">自己紹介</p>
+      <h2>Sobre mí</h2>
+      <p class="muted">Mi historia con la tecnología, desde las primeras consolas hasta hoy.</p>
+      <a class="link" href="about.html">Leer más →</a>
+    </section>
 
-    <p class="section-tag">// explorar</p>
-    <h2 class="section-title">¿Por dónde empezamos?</h2>
+    <section class="card">
+      <p class="kanji-title">音楽</p>
+      <h2>Lo que suena</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/1EeOK1wDKtsOG0QSYPJnGa?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <p class="muted" style="margin-top:10px">Playlist para codear, la que más escucho.</p>
+    </section>
 
-    <div class="nav-cards">
-      <a href="about.html" class="nav-card fade-up">
-        <div class="nav-card-icon">👾</div>
-        <div class="nav-card-title">Sobre mí</div>
-        <div class="nav-card-desc">Mi historia, qué me mueve, cómo llegué a la tecnología y qué ando haciendo.</div>
-        <div class="nav-card-arrow">ver más →</div>
-      </a>
-      <a href="onepiece.html" class="nav-card op fade-up delay-1">
-        <div class="nav-card-icon">🏴‍☠️</div>
-        <div class="nav-card-title">One Piece</div>
-        <div class="nav-card-desc">Mi rincón dedicado a la mejor historia jamás contada. Hablaremos.</div>
-        <div class="nav-card-arrow">set sail →</div>
-      </a>
-      <a href="music.html" class="nav-card fade-up delay-2">
-        <div class="nav-card-icon">🎵</div>
-        <div class="nav-card-title">Música</div>
-        <div class="nav-card-desc">Mis playlists públicas. Rap chill, j-rock, rock en español y música para codear.</div>
-        <div class="nav-card-arrow">escuchar →</div>
-      </a>
-      <a href="contact.html" class="nav-card fade-up delay-3">
-        <div class="nav-card-icon">📡</div>
-        <div class="nav-card-title">Contacto</div>
-        <div class="nav-card-desc">Mis redes, mis perfiles, mis canales. Conéctate.</div>
-        <div class="nav-card-arrow">conectar →</div>
-      </a>
+    <div class="grid2">
+      <section class="card">
+        <p class="kanji-title">海賊</p>
+        <h2>One Piece</h2>
+        <p class="muted">Mi rincón del manga, con teorías y favoritos.</p>
+        <a class="link" href="onepiece.html">Entrar →</a>
+      </section>
+      <section class="card">
+        <p class="kanji-title">連絡</p>
+        <h2>Contacto</h2>
+        <p class="muted">Mis redes y mi correo, en un clic.</p>
+        <a class="link" href="contact.html">Ver redes →</a>
+      </section>
     </div>
   </main>
-
-  <footer>
-    <span>momanche · 2025</span>
-    <span>[ hecho con código y nostalgia ]</span>
-  </footer>
-
+</div>
+<footer>momanche · 2026 · [ hecho con código y nostalgia ]</footer>
+<script src="js/lastfm.js"></script>
 </body>
 </html>

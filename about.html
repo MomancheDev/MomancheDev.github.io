@@ -5,350 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre mí · Momanche</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .page-hero {
-      padding: 60px 0 20px;
-    }
-
-    /* ── BIO BLOCK ── */
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 32px;
-      align-items: start;
-      margin-bottom: 40px;
-    }
-
-    .avatar-wrap {
-      position: relative;
-    }
-
-    .avatar-frame {
-      width: 140px;
-      height: 140px;
-      border: 2px solid var(--cyan);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--bg-card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 30px var(--cyan-glow);
-      position: relative;
-    }
-
-    /* reemplaza con: <img src="img/avatar.jpg" alt="Momanche"> */
-    .avatar-placeholder {
-      font-family: 'Orbitron', monospace;
-      font-size: 56px;
-      font-weight: 900;
-      color: var(--cyan);
-      opacity: 0.6;
-    }
-
-    .avatar-badge {
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--orange);
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 3px;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    .bio-info { padding-top: 8px; }
-
-    .bio-name {
-      font-family: 'Orbitron', monospace;
-      font-size: 28px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-    }
-
-    .bio-alias {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      color: var(--orange);
-      letter-spacing: 3px;
-      margin-bottom: 14px;
-    }
-
-    .bio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .bio-text {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* ── INTERESTS ── */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-    }
-
-    .interest-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 18px;
-      transition: all 0.2s;
-    }
-
-    .interest-card:hover {
-      border-color: var(--cyan-glow);
-      background: var(--bg-hover);
-      transform: translateY(-2px);
-    }
-
-    .interest-icon {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .interest-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .interest-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* ── TECH HISTORY TIMELINE ── */
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px; top: 4px; bottom: 4px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--cyan), var(--orange), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 32px;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -25px;
-      top: 4px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--bg-deep);
-      border: 2px solid var(--cyan);
-    }
-
-    .timeline-item:last-child .timeline-dot {
-      border-color: var(--orange);
-    }
-
-    .timeline-year {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-    }
-
-    .timeline-item:last-child .timeline-year { color: var(--orange); }
-
-    .timeline-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-      letter-spacing: 1px;
-    }
-
-    .timeline-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 500px) {
-      .bio-grid {
-        grid-template-columns: 1fr;
-      }
-      .avatar-frame { width: 100px; height: 100px; }
-      .avatar-placeholder { font-size: 40px; }
-    }
-  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">M<span>0</span>MANCHE</a>
-    <div class="nav-links">
-      <a href="index.html">inicio</a>
-      <a href="about.html" class="active">sobre mí</a>
-      <a href="onepiece.html">one piece</a>
-      <a href="music.html">música</a>
-      <a href="contact.html">contacto</a>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="avatar-frame">
+      <div class="avatar-ring"></div>
+      <div class="avatar"><img src="img/avatar.jpg" alt="Santiago"></div>
+      <span class="k-corner tl">夢</span>
+      <span class="k-corner br">海</span>
     </div>
-  </nav>
-
-  <main>
-    <div class="page-hero">
-      <p class="section-tag fade-up">// player profile</p>
-      <h1 class="section-title fade-up delay-1">Sobre mí</h1>
+    <div class="name">Santiago</div>
+    <div class="handle">Momanche</div>
+    <div class="loc">Querétaro, MX</div>
+    <div class="socials">
+      <a href="https://github.com/MomancheDev" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+      <a href="https://www.instagram.com/momanche.exe/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E1306C" alt=""></a>
+      <a href="https://www.tiktok.com/@momanche.og" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt=""></a>
+      <a href="https://steamcommunity.com/id/MomancheGOD/" target="_blank" rel="noopener" aria-label="Steam"><img src="https://cdn.simpleicons.org/steam/00ADEE" alt=""></a>
+      <a href="https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng" target="_blank" rel="noopener" aria-label="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt=""></a>
+      <a href="https://www.reddit.com/user/Atentado-Visual/" target="_blank" rel="noopener" aria-label="Reddit"><img src="https://cdn.simpleicons.org/reddit/FF4500" alt=""></a>
+      <a href="https://www.facebook.com/itnas.nwn/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></a>
     </div>
+    <div class="np" id="np"><div class="np-label">Last.fm</div><div class="np-artist">Cargando...</div></div>
+    <nav class="nav">
+      <a href="index.html" data-page="index"><span class="k">家</span>Inicio</a>
+      <a href="about.html" data-page="about" class="active"><span class="k">自己紹介</span>Sobre mí</a>
+      <a href="music.html" data-page="music"><span class="k">音楽</span>Música</a>
+      <a href="onepiece.html" data-page="onepiece"><span class="k">海賊</span>One Piece</a>
+      <a href="contact.html" data-page="contact"><span class="k">連絡</span>Contacto</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <section class="card hero">
+      <p class="kanji-title">自己紹介</p>
+      <h1>Quién soy</h1>
+      <p class="lead">Soy Santiago, también conocido como Momanche. Vivo en Querétaro y me dedico al desarrollo web. Crecí entre consolas, anime y tecnología, y de alguna forma todo eso terminó siendo mi trabajo y mi estilo de vida.</p>
+    </section>
 
-    <!-- BIO -->
-    <div class="bio-grid fade-up delay-2">
-      <div class="avatar-wrap">
-        <div class="avatar-frame">
-        <img src="{css,js,img}/img/avatar.jpg" alt="Santiago / Momanche" style="width:100%;height:100%;object-fit:cover">
-          <span class="avatar-placeholder"></span>
-        </div>
-        <div class="avatar-badge">DEV · MX</div>
-      </div>
-
-      <div class="bio-info">
-        <h2 class="bio-name">Santiago 🐧</h2>
-        <p class="bio-alias">@Momanche</p>
-        <div class="bio-tags">
-          <span class="badge badge-cyan">Querétaro, MX</span>
-          <span class="badge badge-orange">Frontend Dev</span>
-          <span class="badge badge-cyan">One Piece fan</span>
-        </div>
-        <p class="bio-text">
-          <!-- EDITA este texto con tu historia -->
-          Soy Santiago, también conocido en internet como Momanche.
-          Vivo en Querétaro y voy encaminado al desarrollo web. Crecí rodeado de
-          consolas, animé y tecnología — y de alguna forma todo eso se convirtió
-          en mi estilo de vida.
-        </p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- INTERESES -->
-    <section>
-      <p class="section-tag fade-up">// likes &amp; interests</p>
-      <h2 class="section-title fade-up delay-1">Qué me gusta</h2>
-
-      <div class="interests-grid">
-        <div class="interest-card fade-up">
+    <section class="card">
+      <p class="kanji-title">好き</p>
+      <h2>Lo que me gusta</h2>
+      <div class="interest-grid">
+        <div class="interest-card">
           <div class="interest-icon">💻</div>
           <div class="interest-title">Programar</div>
-          <div class="interest-desc">HTML, CSS, JS. Me gusta construir cosas que se puedan ver y tocar en el navegador.</div>
+          <p class="interest-desc">HTML, CSS y JS. Me gusta construir cosas que se puedan ver y tocar en el navegador.</p>
         </div>
-        <div class="interest-card fade-up delay-1">
+        <div class="interest-card">
           <div class="interest-icon">🎮</div>
           <div class="interest-title">Videojuegos</div>
-          <div class="interest-desc">Desde el Xbox clásico y PS1 hasta el PC Gaming Los juegos son parte de quien he sido y quien soy.</div>
+          <p class="interest-desc">Desde el Xbox clásico y el PS1 hasta el PC gaming. Los juegos son parte de quien he sido y de quien soy.</p>
         </div>
-        <div class="interest-card fade-up delay-2">
+        <div class="interest-card">
           <div class="interest-icon">🏴‍☠️</div>
           <div class="interest-title">One Piece</div>
-          <div class="interest-desc">La mejor historia jamás contada. Le dediqué una página completa, así de serio va.</div>
+          <p class="interest-desc">La mejor historia jamás contada. Le dediqué una página completa, así de serio va.</p>
         </div>
-        <div class="interest-card fade-up delay-3">
-          <!-- AGREGA / EDITA tus gustos reales -->
+        <div class="interest-card">
           <div class="interest-icon">🎵</div>
           <div class="interest-title">Música</div>
-          <div class="interest-desc">Algun gusto en especifico? dificil pero tal vez el rap, album favotito "Tu Antiheroe Favorito"</div>
+          <p class="interest-desc">Algún género en específico es difícil de elegir, pero tal vez el rap. Mi álbum favorito: Tu Antihéroe Favorito.</p>
         </div>
-        <div class="interest-card fade-up delay-4">
+        <div class="interest-card">
           <div class="interest-icon">📡</div>
           <div class="interest-title">Internet culture</div>
-          <div class="interest-desc">Reddit, memes, comunidades. Soy parte de este ecosistema.</div>
+          <p class="interest-desc">Reddit, memes, comunidades. Soy parte de este ecosistema.</p>
         </div>
-        <div class="interest-card fade-up">
-          <!-- Agrega otro gusto tuyo -->
-          <div class="interest-icon">📹</div>
-          <div class="interest-title">Creacion de contenido</div>
-          <div class="interest-desc">Aunque peco de no ser constante es algo que me gusta, especificamente compartir con las demas personas el poco conocimiento que tengo del area.</div>
+        <div class="interest-card">
+          <div class="interest-icon">🎥</div>
+          <div class="interest-title">Creación de contenido</div>
+          <p class="interest-desc">Aunque peco de no ser constante, es algo que me gusta: compartir con los demás el poco conocimiento que tengo del área.</p>
         </div>
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- HISTORIA CON LA TECH -->
-    <section>
-      <p class="section-tag fade-up">// origen</p>
-      <h2 class="section-title fade-up delay-1">Mi historia con la tecnología</h2>
-
-      <div class="timeline fade-up delay-2">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Early 2000s</div>
-          <div class="timeline-title">El primer contacto</div>
-          <div class="timeline-desc">
-            <!-- EDITA: cuándo y cómo fue tu primer contacto con tecnología -->
-            Las primeras consolas, los primeros juegos. Ahí empezó todo sin que yo lo supiera.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2010s</div>
-          <div class="timeline-title">El internet me atrapa</div>
-          <div class="timeline-desc">
-            <!-- EDITA: cómo descubriste el internet, redes, comunidades -->
-            Descubrí las comunidades en línea, los foros, YouTube. Me di cuenta que el internet era
-            un mundo aparte y quería entender cómo funcionaba.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Más reciente</div>
-          <div class="timeline-title">Aprendiendo a construir</div>
-          <div class="timeline-desc">
-            <!-- EDITA: cuándo empezaste a programar, qué estudiaste -->
-            Empecé con HTML y CSS, esas primeras páginas feas que todos hacemos.
-            Poco a poco fui entendiendo cómo funciona la web y aquí sigo.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Hoy</div>
-          <div class="timeline-title">Construyendo esta página</div>
-          <div class="timeline-desc">
-            <!-- EDITA: qué estás haciendo ahora -->
-            Desarrollando proyectos propios, aprendiendo más cada día y compartiendo
-            lo que me gusta en mis redes. Este sitio es mi espacio en internet.
-          </div>
-        </div>
+    <section class="card">
+      <p class="kanji-title">歴史</p>
+      <h2>Mi historia con la tecnología</h2>
+      <div class="timeline">
+        <div><div class="y">Primeros años</div><div class="t">El primer contacto</div><div class="d">Las primeras consolas y los primeros juegos.</div></div>
+        <div><div class="y">Internet</div><div class="t">El internet me atrapa</div><div class="d">Foros, comunidades y videos. Quise entender cómo funcionaba todo.</div></div>
+        <div><div class="y">Programar</div><div class="t">Aprendiendo a construir</div><div class="d">Empecé con HTML y CSS, con esas primeras páginas que todos hacemos.</div></div>
+        <div><div class="y">Hoy</div><div class="t">Construyendo este sitio</div><div class="d">Proyectos propios y este espacio en internet.</div></div>
       </div>
+    </section>
+    <section class="card">
+      <p class="kanji-title">愛車</p>
+      <h2>Mi Civic</h2>
+      <p class="muted">Arrastra para girarlo. También gira solo.</p>
+      <div id="civic-viewer" class="civic-viewer" style="margin-top:12px"></div>
+      <p class="muted" style="font-size:12px;margin-top:8px">Modelo: "1993 Honda Civic EJ1 VIS Racing Bomber" por Raysh, licencia CC BY 4.0, en sketchfab.com</p>
     </section>
   </main>
-
-  <footer>
-    <span>momanche · 2025</span>
-    <span>[ hecho con código y nostalgia ]</span>
-  </footer>
-
+</div>
+<footer>momanche · 2026 · [ hecho con código y nostalgia ]</footer>
+<script src="js/lastfm.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="js/civic.js"></script>
 </body>
 </html>

@@ -5,318 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Música · Momanche</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    :root {
-      --sp: #1db954;
-      --sp-dim: rgba(29,185,84,0.12);
-      --sp-glow: rgba(29,185,84,0.3);
-    }
-
-    body::after {
-      background-image:
-        linear-gradient(rgba(29,185,84,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(29,185,84,0.025) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .page-hero { padding: 60px 0 20px; }
-
-    .page-hero .section-title::after {
-      background: linear-gradient(90deg, var(--sp), transparent);
-    }
-
-    /* ── PLAYLIST GRID ── */
-    .playlist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .playlist-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(29,185,84,0.2);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: border-color 0.25s, transform 0.25s;
-      position: relative;
-    }
-
-    .playlist-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--sp);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .playlist-card:hover {
-      border-color: var(--sp-glow);
-      transform: translateY(-3px);
-    }
-
-    .playlist-card:hover::before { opacity: 1; }
-
-    /* embed iframe override */
-    .playlist-card iframe {
-      display: block;
-      width: 100%;
-      border: none;
-      border-radius: 0;
-    }
-
-    .playlist-body {
-      padding: 16px 18px 18px;
-      border-top: 1px solid rgba(29,185,84,0.1);
-    }
-
-    .playlist-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--sp);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .playlist-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .playlist-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .playlist-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .ptag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 3px;
-      letter-spacing: 1px;
-      background: var(--sp-dim);
-      color: var(--sp);
-      border: 1px solid rgba(29,185,84,0.2);
-    }
-
-    .playlist-open {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--sp);
-      text-decoration: none;
-      letter-spacing: 1px;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-    .playlist-open:hover { opacity: 1; }
-
-    /* ── FEATURED / MOST PLAYED ── */
-    .featured-badge {
-      position: absolute;
-      top: 10px; right: 10px;
-      z-index: 2;
-      background: var(--orange);
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      padding: 3px 8px;
-      border-radius: 3px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* ── VIBE INTRO CARDS ── */
-    .vibe-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .vibe-chip {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-    }
-
-    @media (max-width: 600px) {
-      .playlist-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">M<span>0</span>MANCHE</a>
-    <div class="nav-links">
-      <a href="index.html">inicio</a>
-      <a href="about.html">sobre mí</a>
-      <a href="onepiece.html">one piece</a>
-      <a href="music.html" class="active">música</a>
-      <a href="contact.html">contacto</a>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="avatar-frame">
+      <div class="avatar-ring"></div>
+      <div class="avatar"><img src="img/avatar.jpg" alt="Santiago"></div>
+      <span class="k-corner tl">夢</span>
+      <span class="k-corner br">海</span>
     </div>
-  </nav>
-
-  <main>
-    <div class="page-hero">
-      <p class="section-tag fade-up">// lo que suena</p>
-      <h1 class="section-title fade-up delay-1">Mis playlists</h1>
-      <p style="color:var(--text-muted); font-size:16px; max-width:520px; margin-bottom:24px;" class="fade-up delay-2">
-        Cuatro playlists que definen bastante bien cómo suena mi cabeza dependiendo del mood.
-        Todas públicas, todas mías.
-      </p>
-      <div class="vibe-row fade-up delay-3">
-        <span class="vibe-chip">rap en español</span>
-        <span class="vibe-chip">rock japonés</span>
-        <span class="vibe-chip">rock en español</span>
-        <span class="vibe-chip">código + lofi</span>
-      </div>
+    <div class="name">Santiago</div>
+    <div class="handle">Momanche</div>
+    <div class="loc">Querétaro, MX</div>
+    <div class="socials">
+      <a href="https://github.com/MomancheDev" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+      <a href="https://www.instagram.com/momanche.exe/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E1306C" alt=""></a>
+      <a href="https://www.tiktok.com/@momanche.og" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt=""></a>
+      <a href="https://steamcommunity.com/id/MomancheGOD/" target="_blank" rel="noopener" aria-label="Steam"><img src="https://cdn.simpleicons.org/steam/00ADEE" alt=""></a>
+      <a href="https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng" target="_blank" rel="noopener" aria-label="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt=""></a>
+      <a href="https://www.reddit.com/user/Atentado-Visual/" target="_blank" rel="noopener" aria-label="Reddit"><img src="https://cdn.simpleicons.org/reddit/FF4500" alt=""></a>
+      <a href="https://www.facebook.com/itnas.nwn/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></a>
     </div>
+    <div class="np" id="np"><div class="np-label">Last.fm</div><div class="np-artist">Cargando...</div></div>
+    <nav class="nav">
+      <a href="index.html" data-page="index"><span class="k">家</span>Inicio</a>
+      <a href="about.html" data-page="about"><span class="k">自己紹介</span>Sobre mí</a>
+      <a href="music.html" data-page="music" class="active"><span class="k">音楽</span>Música</a>
+      <a href="onepiece.html" data-page="onepiece"><span class="k">海賊</span>One Piece</a>
+      <a href="contact.html" data-page="contact"><span class="k">連絡</span>Contacto</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <section class="card">
+      <p class="kanji-title">音楽</p>
+      <h1>Mis playlists</h1>
+      <p class="lead">Cuatro playlists públicas, según el momento.</p>
+    </section>
 
-    <div class="playlist-grid">
-
-      <!-- PLAYLIST 1 — RAP CHILL (la más escuchada) -->
-      <div class="playlist-card fade-up">
-        <div class="featured-badge">⭐ más escuchada</div>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/6ZTTVMT4MboJ9ngymopkZh?utm_source=generator&theme=0"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <div class="playlist-body">
-          <div class="playlist-label">// mood: chill</div>
-          <div class="playlist-title">Rap tranquilo</div>
-          <div class="playlist-desc">
-            La que más va conmigo. Adán Cruz, Tino el Pingüino, Charles Ans, WK —
-            rap en español pero del que no cansa.
-          </div>
-          <div class="playlist-tags">
-            <span class="ptag">rap mx</span>
-            <span class="ptag">chill</span>
-            <span class="ptag">en español</span>
-          </div>
-          <a
-            href="https://open.spotify.com/playlist/6ZTTVMT4MboJ9ngymopkZh"
-            target="_blank" rel="noopener noreferrer"
-            class="playlist-open"
-          >abrir en spotify →</a>
-        </div>
-      </div>
-
-      <!-- PLAYLIST 2 — CODE -->
-      <div class="playlist-card fade-up delay-1">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/1EeOK1wDKtsOG0QSYPJnGa?utm_source=generator&theme=0"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <div class="playlist-body">
-          <div class="playlist-label">// modo: focus</div>
-          <div class="playlist-title">Para codear</div>
-          <div class="playlist-desc">
-            La que corro cuando abro el editor. Buena para concentrarse,
-            mala para las distracciones.
-          </div>
-          <div class="playlist-tags">
-            <span class="ptag">focus</span>
-            <span class="ptag">coding</span>
-            <span class="ptag">daily</span>
-          </div>
-          <a
-            href="https://open.spotify.com/playlist/1EeOK1wDKtsOG0QSYPJnGa"
-            target="_blank" rel="noopener noreferrer"
-            class="playlist-open"
-          >abrir en spotify →</a>
-        </div>
-      </div>
-
-      <!-- PLAYLIST 3 — ROCK JAPONÉS -->
-      <div class="playlist-card fade-up delay-2">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/6AdYw2HgMJEMRkFIDlvrVW?utm_source=generator&theme=0"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <div class="playlist-body">
-          <div class="playlist-label">// nicho: japonés</div>
-          <div class="playlist-title">Rock japonés alternativo</div>
-          <div class="playlist-desc">
-            Bandas poco conocidas, nada de OSTs de anime. Rock alternativo japonés
-            del que no está en todos lados.
-          </div>
-          <div class="playlist-tags">
-            <span class="ptag">j-rock</span>
-            <span class="ptag">alternativo</span>
-            <span class="ptag">underground</span>
-          </div>
-          <a
-            href="https://open.spotify.com/playlist/6AdYw2HgMJEMRkFIDlvrVW"
-            target="_blank" rel="noopener noreferrer"
-            class="playlist-open"
-          >abrir en spotify →</a>
-        </div>
-      </div>
-
-      <!-- PLAYLIST 4 — ROCK ESPAÑOL -->
-      <div class="playlist-card fade-up delay-3">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/2YTxdTqq5AhjqO2kRu6XvH?utm_source=generator&theme=0"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <div class="playlist-body">
-          <div class="playlist-label">// vibe: callejero</div>
-          <div class="playlist-title">Rock en español</div>
-          <div class="playlist-desc">
-            Rock en español, un poco de ska y mixes raros.
-          </div>
-          <div class="playlist-tags">
-            <span class="ptag">rock mx</span>
-            <span class="ptag">ska</span>
-            <span class="ptag">en español</span>
-          </div>
-          <a
-            href="https://open.spotify.com/playlist/2YTxdTqq5AhjqO2kRu6XvH"
-            target="_blank" rel="noopener noreferrer"
-            class="playlist-open"
-          >abrir en spotify →</a>
-        </div>
-      </div>
-
+    <div class="grid2">
+      <section class="card">
+        <iframe src="https://open.spotify.com/embed/playlist/6ZTTVMT4MboJ9ngymopkZh?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h2 style="margin-top:14px">Rap tranquilo</h2>
+        <p class="muted">La que más escucho: Adán Cruz, Tino el Pingüino, Charles Ans, WK.</p>
+      </section>
+      <section class="card">
+        <iframe src="https://open.spotify.com/embed/playlist/1EeOK1wDKtsOG0QSYPJnGa?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h2 style="margin-top:14px">Para codear</h2>
+        <p class="muted">La que pongo cuando abro el editor.</p>
+      </section>
+      <section class="card">
+        <iframe src="https://open.spotify.com/embed/playlist/6AdYw2HgMJEMRkFIDlvrVW?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h2 style="margin-top:14px">Rock japonés alternativo</h2>
+        <p class="muted">Bandas poco conocidas, nada de OST de anime.</p>
+      </section>
+      <section class="card">
+        <iframe src="https://open.spotify.com/embed/playlist/2YTxdTqq5AhjqO2kRu6XvH?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h2 style="margin-top:14px">Rock en español</h2>
+        <p class="muted">Caifanes, Panteón Rococó y compañía.</p>
+      </section>
     </div>
   </main>
-
-  <footer>
-    <span>momanche · 2025</span>
-    <span>[ música para cada modo ]</span>
-  </footer>
-
+</div>
+<footer>momanche · 2026 · [ hecho con código y nostalgia ]</footer>
+<script src="js/lastfm.js"></script>
 </body>
 </html>

@@ -5,404 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>One Piece · Momanche</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── ONE PIECE OVERRIDES ── */
-    :root {
-      --op-gold:    #f0c040;
-      --op-gold-dim: rgba(240,192,64,0.15);
-      --op-red:     #cc2200;
-      --op-red-dim: rgba(204,34,0,0.15);
-      --op-sea:     #0077aa;
-    }
-
-    body::after {
-      background-image:
-        linear-gradient(rgba(240,192,64,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(240,192,64,0.025) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .page-hero { padding: 60px 0 20px; }
-
-    /* jolly roger accent */
-    .op-hero-accent {
-      font-size: clamp(48px, 10vw, 90px);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .op-title-big {
-      font-family: 'Orbitron', monospace;
-      font-weight: 900;
-      font-size: clamp(32px, 6vw, 58px);
-      line-height: 1.1;
-      color: var(--op-gold);
-      text-shadow: 0 0 40px rgba(240,192,64,0.4);
-      letter-spacing: 4px;
-      margin-bottom: 8px;
-    }
-
-    .op-subtitle {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      color: var(--text-muted);
-      letter-spacing: 3px;
-      margin-bottom: 32px;
-    }
-
-    /* ── QUOTE BLOCK ── */
-    .op-quote {
-      border-left: 3px solid var(--op-gold);
-      padding: 16px 24px;
-      background: var(--op-gold-dim);
-      border-radius: 0 8px 8px 0;
-      margin: 32px 0;
-    }
-
-    .op-quote p {
-      font-size: 18px;
-      color: var(--op-gold);
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 8px;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-    }
-
-    .op-quote cite {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-    }
-
-    /* ── STAT CARDS ── */
-    .op-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-bottom: 48px;
-    }
-
-    .op-stat-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(240,192,64,0.2);
-      border-radius: 8px;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .op-stat-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--op-gold);
-      display: block;
-    }
-
-    .op-stat-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--text-dim);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 4px;
-      display: block;
-    }
-
-    /* ── OPINION / SECTION BLOCKS ── */
-    .op-block {
-      background: var(--bg-card);
-      border: 1px solid rgba(240,192,64,0.15);
-      border-radius: 8px;
-      padding: 28px;
-      margin-bottom: 16px;
-      transition: border-color 0.2s;
-    }
-
-    .op-block:hover { border-color: rgba(240,192,64,0.35); }
-
-    .op-block-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--op-gold);
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .op-block-title span { font-size: 20px; }
-
-    .op-block p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* ── CREW / FAVS ── */
-    .fav-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-    }
-
-    .fav-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(240,192,64,0.15);
-      border-radius: 8px;
-      padding: 20px 14px;
-      text-align: center;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .fav-card:hover {
-      border-color: rgba(240,192,64,0.4);
-      transform: translateY(-3px);
-    }
-
-    .fav-card .fav-img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: var(--bg-mid);
-      border: 2px solid rgba(240,192,64,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 10px;
-    }
-
-    .fav-name {
-      font-family: 'Orbitron', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--op-gold);
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    .fav-role {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--text-dim);
-      letter-spacing: 1px;
-    }
-
-    .fav-num {
-      position: absolute;
-      top: 8px; right: 10px;
-      font-family: 'Orbitron', monospace;
-      font-size: 10px;
-      color: var(--text-dim);
-    }
-
-    /* spoiler toggle */
-    .spoiler-wrap {
-      position: relative;
-    }
-
-    .spoiler-cover {
-      position: absolute;
-      inset: 0;
-      background: var(--bg-mid);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: 1px dashed rgba(240,192,64,0.3);
-      z-index: 2;
-      transition: opacity 0.3s;
-    }
-
-    .spoiler-cover p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      color: var(--op-gold);
-      letter-spacing: 2px;
-      text-align: center;
-    }
-
-    .spoiler-cover:hover { background: rgba(240,192,64,0.05); }
-
-    .spoiler-cover.hidden { opacity: 0; pointer-events: none; }
-  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">M<span>0</span>MANCHE</a>
-    <div class="nav-links">
-      <a href="index.html">inicio</a>
-      <a href="about.html">sobre mí</a>
-      <a href="onepiece.html" class="active">one piece</a>
-      <a href="music.html">música</a>
-      <a href="contact.html">contacto</a>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="avatar-frame">
+      <div class="avatar-ring"></div>
+      <div class="avatar"><img src="img/avatar.jpg" alt="Santiago"></div>
+      <span class="k-corner tl">夢</span>
+      <span class="k-corner br">海</span>
     </div>
-  </nav>
-
-  <main>
-    <div class="page-hero">
-      <div class="op-hero-accent fade-up">🏴‍☠️</div>
-      <h1 class="op-title-big fade-up delay-1">ONE PIECE</h1>
-      <p class="op-subtitle fade-up delay-2">// el rincón de Momanche</p>
+    <div class="name">Santiago</div>
+    <div class="handle">Momanche</div>
+    <div class="loc">Querétaro, MX</div>
+    <div class="socials">
+      <a href="https://github.com/MomancheDev" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt=""></a>
+      <a href="https://www.instagram.com/momanche.exe/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E1306C" alt=""></a>
+      <a href="https://www.tiktok.com/@momanche.og" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt=""></a>
+      <a href="https://steamcommunity.com/id/MomancheGOD/" target="_blank" rel="noopener" aria-label="Steam"><img src="https://cdn.simpleicons.org/steam/00ADEE" alt=""></a>
+      <a href="https://open.spotify.com/user/tokj5n32qiwllrhms6mk3apng" target="_blank" rel="noopener" aria-label="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt=""></a>
+      <a href="https://www.reddit.com/user/Atentado-Visual/" target="_blank" rel="noopener" aria-label="Reddit"><img src="https://cdn.simpleicons.org/reddit/FF4500" alt=""></a>
+      <a href="https://www.facebook.com/itnas.nwn/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></a>
     </div>
+    <div class="np" id="np"><div class="np-label">Last.fm</div><div class="np-artist">Cargando...</div></div>
+    <nav class="nav">
+      <a href="index.html" data-page="index"><span class="k">家</span>Inicio</a>
+      <a href="about.html" data-page="about"><span class="k">自己紹介</span>Sobre mí</a>
+      <a href="music.html" data-page="music"><span class="k">音楽</span>Música</a>
+      <a href="onepiece.html" data-page="onepiece" class="active"><span class="k">海賊</span>One Piece</a>
+      <a href="contact.html" data-page="contact"><span class="k">連絡</span>Contacto</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <section class="card hero">
+      <span class="bg-kanji" aria-hidden="true">海</span>
+      <p class="kanji-title">海賊</p>
+      <h1>One Piece</h1>
+      <p class="lead">Mi rincón del manga: por qué me gusta, mis favoritos y lo que pienso del arco actual.</p>
+    </section>
 
-    <!-- QUOTE -->
-    <div class="op-quote fade-up delay-3">
-      <p>
-        <!-- CAMBIA por tu frase favorita de One Piece -->
-        "Si tienes hambre..... pues come :D!!"
-      </p>
-      <cite>— Monkey D. Luffy</cite>
-    </div>
+    <section class="card">
+      <p class="quote">Pon aquí tu frase favorita de la serie.</p>
+    </section>
 
-    <!-- STATS -->
-    <div class="op-stats fade-up delay-4">
-      <div class="op-stat-card">
-        <span class="op-stat-num">
-          <!-- pon cuántos episodios llevas -->
-          1100+
-        </span>
-        <span class="op-stat-label">episodios totales</span>
-      </div>
-      <div class="op-stat-card">
-        <span class="op-stat-num">
-          <!-- capítulos del manga -->
-          1110+
-        </span>
-        <span class="op-stat-label">capítulos vistos</span>
-      </div>
-      <div class="op-stat-card">
-        <span class="op-stat-num">
-          <!-- años siguiendo la serie -->
-          2
-        </span>
-        <span class="op-stat-label">años siguiéndolo</span>
-      </div>
-      <div class="op-stat-card">
-        <span class="op-stat-num">∞</span>
-        <span class="op-stat-label">nivel de hype</span>
-      </div>
+    <div class="stats">
+      <div class="stat"><b>1100+</b><span>episodios</span></div>
+      <div class="stat"><b>1110+</b><span>capítulos</span></div>
+      <div class="stat"><b>?</b><span>años siguiéndolo</span></div>
+      <div class="stat"><b>∞</b><span>hype</span></div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- POR QUÉ ONE PIECE -->
-    <section>
-      <p class="section-tag fade-up">// mi opinión</p>
-      <h2 class="section-title fade-up delay-1">¿Por qué One Piece?</h2>
-
-      <div class="op-block fade-up delay-2">
-        <div class="op-block-title"><span>🌊</span> La historia más larga que he amado</div>
-        <p>
-          <!-- EDITA: escribe con tus palabras por qué amas One Piece -->
-          One Piece no es solo un animé. Es una historia sobre la libertad, la amistad
-          y perseguir un sueño sin importar lo que te cueste. Eiichiro Oda lleva décadas
-          construyendo un mundo tan detallado que hasta los personajes secundarios tienen
-          historia propia.
-        </p>
+    <section class="card">
+      <p class="kanji-title">意見</p>
+      <h2 style="margin-bottom:14px">¿Por qué One Piece?</h2>
+      <div class="op-block">
+        <h2><span>🌊</span> La historia más larga que he amado</h2>
+        <p>One Piece no es solo un anime. Es una historia sobre la libertad, la amistad y perseguir un sueño sin importar lo que te cueste. Eiichiro Oda lleva décadas construyendo un mundo tan detallado que hasta los personajes secundarios tienen historia propia.</p>
       </div>
-
-      <div class="op-block fade-up delay-3">
-        <div class="op-block-title"><span>🔥</span> Lo que más me impacta</div>
-        <p>
-          <!-- EDITA: qué momento, arco o elemento te ha marcado más -->
-          El impacto de personajes ficticios en las vidas de las personas, se que no soy el unico al que one piece le ha cambiado la vida, simplemente la mejor obra jamas creada, no hay debate.
-        </p>
+      <div class="op-block">
+        <h2><span>🔥</span> Lo que más me impacta</h2>
+        <p>El impacto de personajes ficticios en la vida de las personas: sé que no soy el único al que One Piece le ha cambiado la vida. Simplemente es la mejor obra jamás creada, no hay debate.</p>
       </div>
-
-      <div class="op-block fade-up delay-4">
-        <div class="op-block-title"><span>⚓</span> Dónde estoy ahora</div>
-        <p>
-          <!-- EDITA: en qué punto de la historia estás -->
-          Actualmente siguiendo el manga en tiempo real. El arco de Elbaph
-          está bien crazy bread. Sin spoilers aquí (o sí, hay un botón más abajo 👀).
-        </p>
+      <div class="op-block">
+        <h2><span>⚓</span> Dónde estoy ahora</h2>
+        <p>Actualmente sigo el manga en tiempo real. El arco de Elbaph está bien crazy bread. Sin spoilers aquí (o sí, hay un botón más abajo 👀).</p>
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-tag fade-up">// mis picks</p>
-      <h2 class="section-title fade-up delay-1">Personajes favoritos</h2>
-
+    <section class="card">
+      <p class="kanji-title">仲間</p>
+      <h2>Personajes favoritos</h2>
       <div class="fav-grid">
-
-        <div class="fav-card fade-up">
-          <div class="fav-num">#1</div>
-          <div class="fav-img">☀️</div>
-          <div class="fav-name">LUFFY</div>
-          <div class="fav-role">CAPITAN</div>
-        </div>
-
-        <div class="fav-card fade-up delay-1">
-          <div class="fav-num">#2</div>
-          <div class="fav-img">🗡️</div>
-          <div class="fav-name">ZORO</div>
-          <div class="fav-role">ESPADACHIN</div>
-        </div>
-
-        <div class="fav-card fade-up delay-2">
-          <div class="fav-num">#3</div>
-          <div class="fav-img">♥️</div>
-          <div class="fav-name">ROCINANTE</div>
-          <div class="fav-role">MARINO</div>
-        </div>
-
-        <div class="fav-card fade-up delay-3">
-          <div class="fav-num">#4</div>
-          <div class="fav-img">💀</div>
-          <div class="fav-name">ROCKS D. XEBEC</div>
-          <div class="fav-role">PUTISIMO AMO</div>
-        </div>
-
+        <div class="fav-card"><div class="fav-num">#1</div><div class="fav-img">👒</div><div class="fav-name">LUFFY</div><div class="fav-role">Capitán</div></div>
+        <div class="fav-card"><div class="fav-num">#2</div><div class="fav-img">⚔️</div><div class="fav-name">ZORO</div><div class="fav-role">Espadachín</div></div>
+        <div class="fav-card"><div class="fav-num">#3</div><div class="fav-img">❤️</div><div class="fav-name">ROCINANTE</div><div class="fav-role">Marino</div></div>
+        <div class="fav-card"><div class="fav-num">#4</div><div class="fav-img">💀</div><div class="fav-name">ROCKS D. XEBEC</div><div class="fav-role">Putísimo amo</div></div>
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- SPOILERS BLOCK -->
-    <section>
-      <p class="section-tag fade-up">// danger zone</p>
-      <h2 class="section-title fade-up delay-1">Zona de spoilers</h2>
-      <p style="color:var(--text-muted); margin-bottom: 24px; font-size:15px;">
-        Lo que pienso sobre el arco final, teorías, momentos que me vuelan la cabeza.
-        <strong style="color:var(--op-gold)">Toca para revelar si ya estás al día.</strong>
-      </p>
-
-      <div class="spoiler-wrap fade-up delay-2">
-        <div class="op-block" id="spoiler-content">
-          <div class="op-block-title"><span>💣</span> BUM ACTUAL</div>
-          <p>
-            <!-- ESCRIBE tus teorías y opiniones del arco actual -->
-            NOMAMEEEEEES YA MOSTRARON COMO SE VE IMUUUUUUUUU CARAJOOOOOO
-          </p>
-        </div>
-        <div class="spoiler-cover" id="spoiler-cover">
-          <p>⚠️ SPOILERS<br><br>click para revelar</p>
-        </div>
-      </div>
+    <section class="card spoiler">
+      <p class="kanji-title">注意</p>
+      <h2>Zona de spoilers</h2>
+      <p class="muted">Teorías y opiniones sobre el arco actual.</p>
+      <p class="muted" style="margin-top:10px">COMO QUE LUFFY ES UN CHANGO???</p>
+      <div class="spoiler-cover" id="spoiler-cover" onclick="this.classList.add('hidden')">Click para revelar</div>
     </section>
   </main>
-
-  <footer>
-    <span>momanche · 2025</span>
-    <span>[ we are · pirate crew · members ]</span>
-  </footer>
-
-  <script>
-    const cover = document.getElementById('spoiler-cover');
-    cover.addEventListener('click', () => cover.classList.add('hidden'));
-  </script>
-
+</div>
+<footer>momanche · 2026 · [ hecho con código y nostalgia ]</footer>
+<script src="js/lastfm.js"></script>
 </body>
 </html>
